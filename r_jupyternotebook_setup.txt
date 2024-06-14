@@ -1,0 +1,18 @@
+R Programming Set in Jupyter Notebook:
+(in CLI)
+	'conda create -n r_stat'
+	'conda activate r_stat'
+	'conda install -c conda-forge jupyterlab'
+	'conda install -c conda-forge r-essentials'
+
+Install the R Kernel:
+With the Conda environment activated, install the R kernel for Jupyter:
+	'R'
+	'install.packages('IRkernel')'
+	'IRkernel::installspec(name = 'ir_conda_env', displayname = 'R (r_stat)')'
+
+Then launch in CLI
+'jupyter notebook'
+
+Verify the Kernel:
+	In Jupyter Notebook, you can verify that the correct kernel is being used by checking the kernel name at the top right corner of the notebook interface. It should say 'R (myenv)'.

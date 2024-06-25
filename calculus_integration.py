@@ -28,9 +28,28 @@ def integrate_piecewise():
     print(f)
 
     # Example: Integrate from 0 to infinity (which should equal 1 for a properly normalized PDF)
-    integral_result_0_to_inf = integrate(f, (y, 0, y))
-    print("The integral of f(y) from 0 to infinity is:")
-    print(integral_result_0_to_inf)
+    integral_result_0_to_y = integrate(f, (y, 0, y))
+    print("The integral of f(y) from 0 to 'y' is:")
+    print(integral_result_0_to_y)
 
 
 print(integrate_piecewise())
+
+def integrate_jpd():
+    """Joint Probability Density Function integration"""
+    # Define the variable
+    x, y = symbols('x y')
+
+    # Define the joint density function
+    f = 24*x*y
+    # Display the function
+    print("The piecewise function f(y) is:")
+    print(f)
+
+    # Set up the integration
+    integral_y = integrate(f, (y, 0, 1/2 - x))
+    integral_x = integrate(integral_y, (x, 0, 1/2))
+    print(integral_y)
+    print(integral_x)
+
+print(integrate_jpd())

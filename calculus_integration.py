@@ -52,4 +52,20 @@ def integrate_jpd():
     print(integral_y)
     print(integral_x)
 
-print(integrate_jpd())
+
+def integrate_for_expexted_value():
+    """Integration for mean (expected value)"""
+    # Define the variable
+    y = symbols('y')
+
+    # Define the probability density function add a 'y'
+    f = 5*(1-y)**4
+    # Display the function
+    print("The pdf function f(y) is:")
+    print(f)
+
+    # Set up the integration
+    integral_y = integrate(f, (y, (1/6), 1))
+    print(integral_y)
+
+print(integrate_for_expexted_value())

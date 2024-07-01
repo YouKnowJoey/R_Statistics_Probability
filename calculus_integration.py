@@ -1,4 +1,5 @@
 from sympy import symbols, exp, Piecewise, integrate, oo
+import sympy as sp
 
 
 def definite_integral_example():
@@ -53,7 +54,7 @@ def integrate_jpd():
     print(integral_x)
 
 
-def integrate_for_expexted_value():
+def integrate_for_expected_value():
     """Integration for mean (expected value)"""
     # Define the variable
     y = symbols('y')
@@ -68,4 +69,22 @@ def integrate_for_expexted_value():
     integral_y = integrate(f, (y, (1/6), 1))
     print(integral_y)
 
-print(integrate_for_expexted_value())
+def normal_distribution_integration():
+    # Define the variables and parameters
+    mu = 40  # Mean
+    sigma = 6.3  # Standard deviation
+    lower_bound = 32  # Given lower bound
+
+    # Define the normal distribution variable and integration limits
+    x = symbols('x')
+    normal_distribution = 1 / (sigma * sp.sqrt(2 * sp.pi)) * sp.exp(-(x - mu)**2 / (2 * sigma**2))
+    lower_limit = lower_bound
+
+    # Perform the integration
+    probability_more_than_32 = sp.integrate(normal_distribution, (x, lower_limit, sp.oo))
+
+    # Print the result
+    print("Probability that a mouse will live more than 32 months:")
+    print(probability_more_than_32.evalf())  # Use evalf() to evaluate the numerical result
+
+print(normal_distribution_integration())

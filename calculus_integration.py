@@ -87,4 +87,23 @@ def normal_distribution_integration():
     print("Probability that a mouse will live more than 32 months:")
     print(probability_more_than_32.evalf())  # Use evalf() to evaluate the numerical result
 
-print(normal_distribution_integration())
+def normal_distribution_integration_two():
+    # Define the variables and parameters
+    mu = 40  # Mean
+    sigma = 6.3  # Standard deviation
+    lower_bound = 37  # Given lower bound
+    upper_bound = 49 # Given upper bound
+
+    # Define the normal distribution variable and integration limits
+    x = symbols('x')
+    normal_distribution = 1 / (sigma * sp.sqrt(2 * sp.pi)) * sp.exp(-(x - mu)**2 / (2 * sigma**2))
+    lower_limit = lower_bound
+
+    # Perform the integration
+    probability_between_37_49 = sp.integrate(normal_distribution, (x, lower_limit, upper_bound))
+
+    # Print the result
+    print("Probability that a mouse will live between 37 and 49 months:")
+    print(probability_between_37_49.evalf())  # Use evalf() to evaluate the numerical result
+
+print(normal_distribution_integration_two())
